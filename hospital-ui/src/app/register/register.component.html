@@ -1,0 +1,85 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="image">
+    <img src="../../assets/images/registerpage-image.jpg" width="500px" height="400px">
+  </div>
+  <div class="wrapper">
+
+    <span class="icon-close"><a routerLink="/login"><i class="fa-solid fa-xmark"></i></a></span>
+    <div class="form-box login">
+      <h2>Register</h2>
+
+
+      <form #register_form="ngForm">
+        <div class="input-box">
+          <input type="text" required pattern="[a-zA-Z0-9]*" id="name" name="name" #id="ngModel"
+            [(ngModel)]="register.name" />
+          <label>Name</label>
+          <div *ngIf="(id?.dirty || id?.touched)" class="text-danger">
+            <div *ngIf="!id?.valid">
+              <div *ngIf="id.errors?.['required']">
+                User name is required
+              </div>
+              <div *ngIf="id.value && id.errors && !id.errors?.['required']">
+                Please enter a valid input [Username should not contain special charaters]
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="input-box">
+          <input type="email" class="" name="email" [(ngModel)]="register.email" required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" #email="ngModel" />
+          <label>Email</label>
+          <div *ngIf="email.invalid && email.touched" class="text-danger">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']">Please enter a valid email address.</div>
+          </div>
+        </div>
+        <div class="input-box">
+          <select class="form-control form-control-lg" [(ngModel)]="register.role" name="role" required #role="ngModel"
+            (change)="onRoleChange()">
+            <option  value="" disabled selected hidden >Select Role</option>
+            <option value="doctor">Doctor</option>
+            <option value="User">User</option>
+          </select>
+        </div>
+
+        <div class="input-box" *ngIf="showSpecialization">
+          <input type="text" class="form-control form-control-lg" pattern="[a-zA-Z]*" id="specialization"
+            name="specialization" #id="ngModel" [(ngModel)]="register.specialization" required />
+          <label>Specialization</label>
+        </div>
+
+        <div class="input-box">
+          <input type="password" class="" [(ngModel)]="register.passwordClear" name="password" required
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" #password="ngModel" />
+          <label>Password</label>
+          <div *ngIf="password.invalid && password.touched" class="text-danger">
+            <div *ngIf="password.errors?.['required']">Password is required.</div>
+            <div *ngIf="password.errors?.['pattern']">
+              Password should contain a minimum of 8 characters with at least 1 uppercase, 1 lowercase, 1
+              digit, and 1 special character.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn" type="button" (click)="onPost()">Register</button>
+          <div *ngIf="showError" class="text-danger">Please fill all the fields.</div>
+        </div>
+
+        <p class="login-register">Already have an account?
+          <a (click)="login_here()">Login here </a>
+        </p>
+
+        <span id="txt" *ngIf="registration_status">Registration successful</span>
+        <span id="txt" *ngIf="registration_statusdoc">You have to wait until the admin approves.</span>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,51 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+
+<app-header></app-header>
+<h1 class="heading">your <span>Appointments</span></h1>
+
+<section class="doctors" id="doctors">
+
+
+    <div class="box-container">
+        <table>
+            <thead>
+                <tr class="box">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Problem</th>
+                    <th>Slot</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="box" *ngFor="let doctor of doctors" [class.done]="doctor.isDone">
+                    <td>{{doctor.patientName}}</td>
+                    <td>{{doctor.patientEmail}}</td>
+                    <td>{{doctor.age}}</td>
+                    <td>{{doctor.gender}}</td>
+                    <td>{{doctor.problem}}</td>
+                    <td>{{doctor.slot}}</td>
+                    <td>
+                        <a class="btn" (click)="markAsDone(doctor)">
+                            Done <span id="icn" class="fas fa-chevron-right"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</section>
+
+<br>
+<br>
+<br> -->
+<app-footer></app-footer>

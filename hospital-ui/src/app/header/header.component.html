@@ -1,0 +1,15 @@
+<header class="header">
+    <a routerLink="/homepage" class="logo"><i class="fa-solid fa-heart-pulse"></i> CarePlus</a>
+
+    <nav class="navbar">
+        <a routerLink="/homepage">Home</a>
+        <a routerLink="/ourservices">Services</a>
+        <a routerLink="/about">About</a>
+
+        <a routerLink="/doctors" *ngIf="flaguser">Doctors</a>
+        <a routerLink="/appointment" *ngIf="flagdoctor">Appointment</a>
+        <a routerLink="/admin" *ngIf="flagadmin">Approval</a>
+        <a routerLink="/reviews">Reviews</a>
+        <a routerLink="/login">Logout</a>
+    </nav>
+</header>

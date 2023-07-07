@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="image">
+    <img src="../../assets/images/login-image4.jpg" width="500px" height="400px">
+  </div>
+  
+  <div class="wrapper">    
+    <div class="form-box login">
+      <h2>Login</h2>
+
+      <div class="input-box">
+        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+        <input type="text" id="form2Example17"  [(ngModel)]="userDTO.email" name="username" #username="ngModel"/>
+        <label >Email</label>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="">
+          <div *ngIf="username.errors?.['required']">User Name is required.</div>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+        <input type="password" id="form2Example27"  [(ngModel)]="userDTO.password"
+          name="password" required #password="ngModel" />
+          <label>Password</label>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+        </div>
+      </div>
+
+      <div class="">
+        <button class="btn" type="button" (click)="Login()">Login </button>
+      </div>
+
+      <p class="login-register">Don't have an account?
+        <a (click)="move()">Register here </a>
+      </p>
+
+    </div>
+  </div>
+</body>

@@ -1,0 +1,29 @@
+<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+  <section class="doctors" id="doctors">
+    <h1 class="heading">our <span>doctors</span></h1>
+    <div class="box-container">
+      <div class="box" *ngFor="let doctor of doctors">
+        <img src="../../assets/docimage/docter-image.jpg">
+        <h3>Dr. {{doctor.name}}</h3>
+        <span>{{doctor.specialization}}</span><br>
+        <a routerLink="/book" class="btn">Book Appointment <span id="icn" class="fas fa-chevron-right"></span></a>
+
+      </div>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
+<app-footer></app-footer>

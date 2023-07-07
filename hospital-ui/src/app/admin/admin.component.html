@@ -1,0 +1,60 @@
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<app-header></app-header>
+<div class="bo" *ngIf="showFormDetails">
+<h3>Name: {{ formDetails?.name }}</h3>
+<span>Email: {{ formDetails?.email }}</span><br>
+<span>Role: {{ formDetails?.role }}</span><br>
+<span>Specialization:{{ formDetails?.specialization }}</span><br>
+
+<button class="btn btn-primary" (click)="approveForm()">
+    <i class="fas fa-check-circle"></i>&nbsp; Approve</button> &nbsp; &nbsp;
+
+<button class="btn btn-danger" (click)="declineForm()">
+    <i class="fas fa-times-circle"></i>&nbsp; Decline
+  </button>
+</div>
+
+<section class="footer">
+  <div class="box-container">
+      <div class="box">
+          <h3>quick link</h3>
+          <a routerLink="/homepage"><i class="fas fa-chevron-right"></i> home</a>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> service</a>
+          <a routerLink="/about"><i class="fas fa-chevron-right"></i> about</a>
+          <a routerLink="/doctors"><i class="fas fa-chevron-right"></i> docters</a>
+          <a routerLink="/reviews"><i class="fas fa-chevron-right"></i> reviews</a>
+      </div>
+
+      <div class="box">
+          <h3>our services</h3>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> dental</a>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> message therapy</a>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> cardiology</a>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> diagnosis</a>
+          <a routerLink="/ourservices"><i class="fas fa-chevron-right"></i> ambulance service</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <a ><i class="fas fa-phone"></i> +123-456-7890</a>
+          <a ><i class="fas fa-phone"></i> +098-765-4321</a>
+          <a ><i class="fas fa-envelope"></i>careplus@gmail.com</a>
+          <a ><i class="fas fa-map-marker-alt"></i> chennai, in - 6000097</a>
+      </div>
+
+      <div class="box">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i> facebook</a>
+          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i> twitter</a>
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i> instagram</a>
+          <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i>linkedin</a>
+          <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest"></i> pinterest</a>
+      </div>
+  </div>
+  <div class="credit"> created by<span> care plus tech team</span> | all rights reserved</div>
+</section>
